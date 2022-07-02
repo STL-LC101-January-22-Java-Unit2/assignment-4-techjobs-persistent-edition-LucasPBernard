@@ -26,13 +26,13 @@ public class SkillController {
 
 
     @GetMapping("add")
-    public String displayAddEmployerForm(Model model) {
+    public String displayAddSkillForm(Model model) {
         model.addAttribute(new Employer());
         return "employers/add";
     }
 
     @PostMapping("add")
-    public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer,
+    public String processAddSkillForm(@ModelAttribute @Valid Employer newEmployer,
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
@@ -43,7 +43,7 @@ public class SkillController {
     }
 
     @GetMapping("view/{employerId}")
-    public String displayViewEmployer(Model model, @PathVariable int employerId) {
+    public String displayViewSkill(Model model, @PathVariable int employerId) {
 
         Optional optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()) {
