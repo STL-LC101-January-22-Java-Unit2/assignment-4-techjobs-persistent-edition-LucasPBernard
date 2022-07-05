@@ -68,6 +68,9 @@ public class HomeController {
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
+        Optional<Job> aJob = jobRepository.findById(jobId);
+        Job job = aJob.get();
+        model.addAttribute("job", job);
         return "view";
     }
 
